@@ -6,7 +6,7 @@ function getData(date,statecode){
     //converting string to date format to make subracting date easier
     var ndate=new Date(date);
     //fetch api to fetch json object from url
-    fetch('https://api.covid19india.org/v4/timeseries.json')
+    return fetch('https://api.covid19india.org/v4/timeseries.json')
         .then(res => res.json())
         .then((out) => {
             var data=[],isodate,nconfirmed,nrecovered,ndeceased;
