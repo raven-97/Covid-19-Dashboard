@@ -1,12 +1,78 @@
 
+<!DOCTYPE html>
+<html>
 <head>
   <script type='text/javascript' src='./jsonhelperfunctions.js'></script>
   <script type='text/javascript' src='./jsonhelpertable.js'></script>
+	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+	<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+	<title>Covid-19 Dashboard</title>
+	<style>
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #F08080;
+			}
+
+		li {
+			float: left;
+		}
+
+		li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		li a:hover {
+			background-color: red;
+		}
+		h2{
+			text-align: center;
+			
+		}
+		div.container {
+			border-radius: 5px;
+			margin-left: 5%;
+			width: 33%;
+
+			
+		}
+
+		div.graph{
+			background-color: red;
+			width: 30%;
+			height: 40%;
+		}
+		input, select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+		footer {
+		  	 text-align: center;
+		  	 background-color: #F08080;
+		  	 color: white;
+		  	 position: fixed; /*Fixes the position of footer*/
+		  	 bottom: 0px;
+		  	 left: 0px;
+		  	 right: 0px;
+		}
+		{
+			background-color: grey;
+		}
+</style>
 </head>
-<h1>Covid-19 Dashboard:India</h1>
 
-
-
+<body>
 
 <main>
 
@@ -14,54 +80,92 @@
 
 
 <div id="menu-nav">
-  <div id="navigation-bar">
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Graph</a></li>
       <li><a href="#">Tabular Data</a></li>
       <li><a href="#">Help</a></li>
     </ul>
-  </div>
 </div>
- <p>Click here to view more about <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">Covid-19</a>.</p>
+<h2>Covid-19 Dashboard:India</h2>
 
 
-
- 
  <br>
+
+
+	<div class="container">
  
-
-
-
-</main>
-
-<body>
-    <div class="row">
-        <div class="column" style="background-color:#FFB695;">
-            <label for="date">Select Date </label>
-            <input id="today" type="date">
-        </div>
-        <div class="column" style="background-color:#96D1CD;">
+            <label for="date">Select Date </label><br>     	
+            <input style="width: 45%;" id="today" type="date">
             <label for="state">Select State</label>
-            <select name="state" id="state">
+            <select style="width: 45%;" name="state" id="state">
+              <option value="AN">Andaman and Nicobar Islands</option>
+              <option value="AR">ARUNANCHAL PRADESH</option>
+              <option value="AS">ASSAM</option>
+              <option value="BR">BIHAR</option>
+              <option value="CG">CHANDIGARH</option>
+              <option value="CH">CHHATTISGARH</option>
+              <option value="DN">DADRA & NAGAR HAVELI</option>
+              <option value="DL">DELHI</option>
+              <option value="GA">GOA</option>
+              <option value="GJ">GUJARAT</option>
+              <option value="HR">HARYANA</option>
+              <option value="JK">JAMMU & KASHMIR</option>
+              <option value="JH">JHARKHAND</option>
+              <option value="LA">LADAKH</option>
+              <option value="LD">LAKSHADEEP</option>
+              <option value="MP">MADHYA PRADESH</option>
+              <option value="MH">MAHARASHTRA</option>
+              <option value="MN">MANIPUR</option>
+              <option value="MZ">MIZORAM</option>
+              <option value="NL">NAGALAND</option>
+              <option value="OR">ODISHA</option>
+              <option value="PY">PUDUCHERRY</option>
+              <option value="PB">PUNJAB</option>
+              <option value="RJ">RAJASTHAN</option>
+              <option value="SK">SIKKIM</option>
+              <option value="TS">TELENGANA</option>
+              <option value="TR">TRIPURA</option>
+              <option value="UP">UTTAR PRADESH</option>
+              <option value="UK">UTTARAKHAND</option>
+              <option value="WB">WEST BENGAL</option>
               <option value="KL">KERALA</option>
               <option value="KA">KARNATAKA</option>
               <option value="TN">TAMIL NADU</option>
               <option value="AP">ANDHRA PRADESH</option>
-            </select>
 
-        </div>
+            </select>
     </div>
+    <!-- <div class='graph'>
+      <h2>Input graph</h2>
+     </div>
+      <div class='table'>
+          <h2>input table</h2>
+      </div> -->
+  	</div>
     <div class='OutputContainer'>
       <div class='graphArea'>
-          graph area
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+       
       </div>
   
   <!-- Main Content Area -->
       <div class='TableArea'>
           table area
       </div>
+	</div>
+
+  </main>
+  <footer> 
+  <!-- <div style="text-align: left; padding-left: 10px; width: 25%; float: left; padding-top: 1%;">
+    <a href="https://ibb.co/wB8GLmX"><img src="https://i.ibb.co/wB8GLmX/TM.jpg" width="40" height="40" alt="TM"></a>
+  </div> -->
+  <div style="float: center;">
+  <p>Freshers Project<br>
+  
   </div>
- </body>
+</footer>
+</body>
+</html>
 
 
