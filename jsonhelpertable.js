@@ -5,7 +5,7 @@ function getTable(date,statecode){
   var pdate = ndate.toISOString().slice(0,10);
   var urlt='https://api.covid19india.org/v4/data-' + date + '.json';
   var urlp='https://api.covid19india.org/v4/data-' + pdate + '.json';
-  var data=[],nconfirmed,nrecovered,ntested,confirmed,recovered,tested,deceased;
+  var data, nconfirmed,nrecovered,ntested,confirmed,recovered,tested,deceased;
     //fetch api to fetch json object from url
   return fetch(urlp)
         .then(rest => rest.json())
@@ -23,7 +23,7 @@ function getTable(date,statecode){
                     y=nrecovered;
                     z=ntested;   
 
-                    fetch(urlt)
+                    return fetch(urlt)
                     .then(res => res.json())
                     .then((out) => {
                       nconfirmed=out[statecode].total.confirmed;
@@ -47,7 +47,7 @@ function getTable(date,statecode){
                         tested=0;
                       if(deceased==undefined)
                         deceased=0;
-                      object={
+                      data={
                         nconfirm : nconfirmed-x,
                         nrecover : nrecovered-y,
                         ntest : ntested-z,
@@ -55,11 +55,12 @@ function getTable(date,statecode){
                         recover : recovered,
                         test : tested,
                         deceas : deceased
-                    }
-                    data.push(object);   
+                    } 
                     return data;
             //console.log( data);
                 }).catch(err => console.error(err));
-            return data;
-            //console.log( data);
     }).catch(err => console.error(err));
+}
+ getTable('2020-09-02','AN').then(function(result) {
+  console.log(result);
+});
