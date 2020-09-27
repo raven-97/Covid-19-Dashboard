@@ -74,7 +74,13 @@
 			border: 1px solid black;
 			border-collapse: collapse;
 		}
-
+		aside.OutputContainer
+      {
+        width: 40%;
+        padding-left: 15px;
+        margin-left: 15px;
+        float: right;
+      }
 
 </style>
 </head>
@@ -88,10 +94,10 @@
 
 <div id="menu-nav">
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Graph</a></li>
-      <li><a href="#">Tabular Data</a></li>
-      <li><a href="#">Help</a></li>
+      <li><a href="tel:+91-11-23978046">Helpline: +91-11-23978046</a></li>
+      <li><a href="tel:1075">Tollfree : 1075</a></li>
+      <li><a href="mailto:ncov2019@gov.in">Helpline Email ID : ncov2019@gov.in</a></li>
+      <li><a href="#"></a></li>
     </ul>
 </div>
 <h2>Covid-19 Dashboard:India</h2>
@@ -148,23 +154,18 @@
 
             </select>
     </div>
-    <!-- <div class='graph'>
-      <h2>Input graph</h2>
-     </div>
-      <div class='table'>
-          <h2>input table</h2>
-      </div> -->
+  
   	</div>
-    <div class='OutputContainer'>
+    <aside class='OutputContainer'>
       <div class='graphArea'>
         <div id="chartContainer" style="height: 300px; width: 100%;"></div>
        
-      </div>
+      </aside>
   
   <!-- Main Content Area -->
-      <div id='TableArea' style="height: 300px; width: 100%;">
+      <div id='TableArea' style="height: 50%; width: 100%;">
           <table id="mytable">
-		  <caption>Data Table</caption>
+		
 		  </table>
       </div>
 	</div>
