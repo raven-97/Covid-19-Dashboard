@@ -5,7 +5,9 @@
 	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 	<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 	<script type='text/javascript' src='./jsonhelperfunctions.js'></script>
-  	<script type='text/javascript' src='./jsonhelpertable.js'></script>
+
+   <script type='text/javascript' src='./jsonhelpertable.js'></script>
+
 	<title>Covid-19 Dashboard</title>
 	<style>
 		ul {
@@ -69,6 +71,13 @@
 		{
 			background-color: grey;
 		}
+
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+
+
 </style>
 </head>
 
@@ -97,14 +106,18 @@
  
             <label for="date">Select Date </label><br>     	
             <input style="width: 45%;" id="today" type="date">
+
+            <p id="err" style="color:red"></p>
             <label for="state">Select State</label>
             <select style="width: 45%;" name="state" id="state">
-              <option value="AN">Andaman and Nicobar Islands</option>
+               <option value="DF">NONE</option>
+              <option value="AN">ANDAMAN AND NICOBAR ISLANDS</option>
               <option value="AR">ARUNANCHAL PRADESH</option>
               <option value="AS">ASSAM</option>
               <option value="BR">BIHAR</option>
-              <option value="CG">CHANDIGARH</option>
-              <option value="CH">CHHATTISGARH</option>
+              <option value="CH">CHANDIGARH</option>
+              <option value="CT">CHHATTISGARH</option>
+
               <option value="DN">DADRA & NAGAR HAVELI</option>
               <option value="DL">DELHI</option>
               <option value="GA">GOA</option>
@@ -113,9 +126,10 @@
               <option value="JK">JAMMU & KASHMIR</option>
               <option value="JH">JHARKHAND</option>
               <option value="LA">LADAKH</option>
-              <option value="LD">LAKSHADEEP</option>
+             
               <option value="MP">MADHYA PRADESH</option>
               <option value="MH">MAHARASHTRA</option>
+			        <option value="ML">MEGHALAYA</option>
               <option value="MN">MANIPUR</option>
               <option value="MZ">MIZORAM</option>
               <option value="NL">NAGALAND</option>
@@ -124,10 +138,10 @@
               <option value="PB">PUNJAB</option>
               <option value="RJ">RAJASTHAN</option>
               <option value="SK">SIKKIM</option>
-              <option value="TS">TELENGANA</option>
+              <option value="TG">TELENGANA</option>
               <option value="TR">TRIPURA</option>
               <option value="UP">UTTAR PRADESH</option>
-              <option value="UK">UTTARAKHAND</option>
+              <option value="UT">UTTARAKHAND</option>
               <option value="WB">WEST BENGAL</option>
               <option value="KL">KERALA</option>
               <option value="KA">KARNATAKA</option>
@@ -150,8 +164,10 @@
       </div>
   
   <!-- Main Content Area -->
-      <div class='TableArea'>
-          table area
+      <div id='TableArea' style="height: 300px; width: 100%;">
+          <table id="mytable">
+		  <caption>Data Table</caption>
+		  </table>
       </div>
 	</div>
 
