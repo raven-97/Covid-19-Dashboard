@@ -43,11 +43,7 @@
 			
 		}
 
-		div.graph{
-			background-color: red;
-			width: 30%;
-			height: 40%;
-		}
+	
 		input, select {
 			width: 100%;
 			padding: 12px 20px;
@@ -66,21 +62,36 @@
 		  	 left: 0px;
 		  	 right: 0px;
 		}
-		{
-			background-color: grey;
-		}
+		
 
 		table, th, td {
-			border: 1px solid black;
+			border: 1px solid grey;
 			border-collapse: collapse;
+			font-family: sans-serif;
+			padding: 0.5rem;
+			text-align: center;
+	
+		}
+		th {
+			font-weight: bold;
 		}
 		aside.OutputContainer
-      {
-        width: 40%;
-        padding-left: 15px;
-        margin-left: 15px;
-        float: right;
-      }
+      	{
+	        width: 40%;
+	        padding-left: 15px;
+	        margin-left: 15px;
+	        float: right;
+	        
+     	}
+     	.TableArea {
+     		height: 50%; 
+     		width: 80%;
+     		padding-top: 7%;
+     		padding-left: 2%;
+
+     	}
+
+
 
 </style>
 </head>
@@ -90,17 +101,16 @@
 <main>
 
 
-
-
+<h2>Covid-19 Dashboard:India</h2>
 <div id="menu-nav">
     <ul>
       <li><a href="tel:+91-11-23978046">Helpline: +91-11-23978046</a></li>
       <li><a href="tel:1075">Tollfree : 1075</a></li>
       <li><a href="mailto:ncov2019@gov.in">Helpline Email ID : ncov2019@gov.in</a></li>
-      <li><a href="#"></a>Contact Us</li>
+      <li><a href="#">Contact Us</a></li>
     </ul>
 </div>
-<h2>Covid-19 Dashboard:India</h2>
+
 
 
  <br>
@@ -121,7 +131,6 @@
               <option value="BR">BIHAR</option>
               <option value="CH">CHANDIGARH</option>
               <option value="CT">CHHATTISGARH</option>
-
               <option value="DN">DADRA & NAGAR HAVELI</option>
               <option value="DL">DELHI</option>
               <option value="GA">GOA</option>
@@ -130,10 +139,9 @@
               <option value="JK">JAMMU & KASHMIR</option>
               <option value="JH">JHARKHAND</option>
               <option value="LA">LADAKH</option>
-             
               <option value="MP">MADHYA PRADESH</option>
               <option value="MH">MAHARASHTRA</option>
-			        <option value="ML">MEGHALAYA</option>
+			  <option value="ML">MEGHALAYA</option>
               <option value="MN">MANIPUR</option>
               <option value="MZ">MIZORAM</option>
               <option value="NL">NAGALAND</option>
@@ -151,30 +159,26 @@
               <option value="KA">KARNATAKA</option>
               <option value="TN">TAMIL NADU</option>
               <option value="AP">ANDHRA PRADESH</option>
-
             </select>
-    </div>
-  
+    	</div>
   	</div>
     <aside class='OutputContainer'>
       <div class='graphArea'>
-        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-       
+        <div id="chartContainer" style="height: 250px; width: 100%;"></div>
+       </div>
       </aside>
   
   <!-- Main Content Area -->
-      <div id='TableArea' style="height: 50%; width: 100%;">
+      <div class='TableArea'>
           <table id="mytable">
 		
 		  </table>
       </div>
-	</div>
+	
 
   </main>
   <footer> 
-  <!-- <div style="text-align: left; padding-left: 10px; width: 25%; float: left; padding-top: 1%;">
-    <a href="https://ibb.co/wB8GLmX"><img src="https://i.ibb.co/wB8GLmX/TM.jpg" width="40" height="40" alt="TM"></a>
-  </div> -->
+
   <div style="float: center;">
   <p>Freshers Project<br>
   
