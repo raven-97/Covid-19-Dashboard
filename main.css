@@ -1,0 +1,111 @@
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #F08080;
+	}
+
+li {
+	float: left;
+	}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	}
+
+li a:hover {
+	background-color: red;
+	}
+
+h2{
+	text-align: center;
+	}
+
+div.container {
+	border-radius: 5px;
+	margin-left: 5%;
+	width: 33%;
+	}
+
+input, select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	}
+
+footer {
+	text-align: center;
+	background-color: #F08080;
+	color: white;
+	position: fixed; /*Fixes the position of footer*/
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	}
+		
+table, th, td {
+	border: 0.1rem solid grey;
+	border-collapse: collapse;
+	font-weight: 350;
+	padding: 0.5rem;
+	text-align: center;
+	font-family: serif;
+	}
+		
+aside.OutputContainer{
+	width: 40%;
+	padding-left: 15px;
+	margin: 15px;
+	float: right;
+	margin-top: -7%;
+	}
+     	
+.TableArea {
+    height: 50%; 
+    width: 50%;
+    padding-top: 7%;
+    padding-left: 2%;
+	}
+ 
+.chartContainer{
+	height: 250px; 
+	width: 100%;
+	}     	
+
+td:nth-child(1){
+	color: red;
+	}
+		
+td:nth-child(2){
+	color: green;
+	}
+
+td:nth-child(3){
+	color: blue;
+	}
+
+td:nth-child(4){
+    color: red;
+	}
+
+td:nth-child(5){
+	color: black;
+	}
+
+td:nth-child(6){
+	color: green;
+	}
+
+td:nth-child(7){
+	color: orange;
+	}
+
