@@ -5,6 +5,9 @@
 	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 	<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 	<script type='text/javascript' src='./jsonhelperfunctions.js'></script>
+
+   <script type='text/javascript' src='./jsonhelpertable.js'></script>
+
 	<title>Covid-19 Dashboard</title>
 	<style>
 		ul {
@@ -68,10 +71,12 @@
 		{
 			background-color: grey;
 		}
+
 		table, th, td {
 			border: 1px solid black;
 			border-collapse: collapse;
 		}
+
 
 </style>
 </head>
@@ -101,6 +106,7 @@
  
             <label for="date">Select Date </label><br>     	
             <input style="width: 45%;" id="today" type="date">
+
             <p id="err" style="color:red"></p>
             <label for="state">Select State</label>
             <select style="width: 45%;" name="state" id="state">
@@ -111,6 +117,7 @@
               <option value="BR">BIHAR</option>
               <option value="CH">CHANDIGARH</option>
               <option value="CT">CHHATTISGARH</option>
+
               <option value="DN">DADRA & NAGAR HAVELI</option>
               <option value="DL">DELHI</option>
               <option value="GA">GOA</option>
@@ -122,7 +129,7 @@
              
               <option value="MP">MADHYA PRADESH</option>
               <option value="MH">MAHARASHTRA</option>
-			  <option value="ML">MEGHALAYA</option>
+			        <option value="ML">MEGHALAYA</option>
               <option value="MN">MANIPUR</option>
               <option value="MZ">MIZORAM</option>
               <option value="NL">NAGALAND</option>
@@ -140,7 +147,6 @@
               <option value="KA">KARNATAKA</option>
               <option value="TN">TAMIL NADU</option>
               <option value="AP">ANDHRA PRADESH</option>
-			  
 
             </select>
     </div>

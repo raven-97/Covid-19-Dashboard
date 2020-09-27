@@ -51,13 +51,15 @@ function getData(date,statecode){
                 //reseting date back to original date
                 ndate=new Date(date);
             }   
-            //console.log(data);
+
       var dataPoints1 = [],dataPoints2 = [],dataPoints3 = [];
       var options =  {
         animationEnabled: true,
         theme: "light2",
         title: {
+
           text: "Covid Data : "+$('#state option:selected').text()
+
         },
         axisX: {
 			title: "Days",
@@ -69,6 +71,7 @@ function getData(date,statecode){
           titleFontSize: 24
         },
         data: [{
+
            name: "Confirmed",
           type: "spline",
           showInLegend: true,
@@ -82,6 +85,7 @@ function getData(date,statecode){
           type: "spline", 
            name: "Recovered",
           showInLegend: true,
+
           dataPoints: dataPoints3
         }]
       };
@@ -112,6 +116,7 @@ function getData(date,statecode){
         
     
           }).catch(err => console.error(err));
+
 }
 function getTable(date,statecode){
   var x, y ,z;
@@ -205,6 +210,7 @@ $(document).ready( ()=>{
     //call getData only if both state and date have been changed
     if($date!="" && $state!="DF")
       {
+
 		$("#mytable").empty();
         getData($date,$state);
 		getTable($date,$state);
@@ -225,5 +231,6 @@ $(document).ready( ()=>{
         
       
     });
+
 });
 });
