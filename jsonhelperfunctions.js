@@ -26,7 +26,6 @@ function getData(date,statecode){
                     month = '0' + month;
                 }
                 isodate=year+'-' + month + '-'+dt;
-              allDate.push(isodate);
                 //if data is not present
                 if(out[statecode].dates[isodate].delta==undefined){
                     nconfirmed=nrecovered=ndeceased=0;
@@ -43,6 +42,7 @@ function getData(date,statecode){
                         ndeceased=0;
                 }
                 object={
+                        allDate : isodate,
                         confirmed : nconfirmed,
                         recovered :nrecovered,
                         deceased :ndeceased
@@ -92,15 +92,15 @@ function getData(date,statecode){
 
       for (var i = 0; i < data.length; i++) {
 		dataPoints1.push({
-			x: new Date(allDate[i]),
+			x: new Date(data[i]['allDate']),
 			y: data[i]['confirmed']
 		});
 		dataPoints2.push({
-			x: new Date(allDate[i]),
+			x: new Date(data[i]['allDate']),
 			y: data[i]['deceased']
 		});
 		dataPoints3.push({
-			x: new Date(allDate[i]),
+			x: new Date(data[i]['allDate']),
 			y: data[i]['recovered']
 		});
         
