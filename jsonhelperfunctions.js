@@ -26,7 +26,6 @@ function getData(date,statecode){
                     month = '0' + month;
                 }
                 isodate=year+'-' + month + '-'+dt;
-              allDate.push(isodate);
                 //if data is not present
                 if(out[statecode].dates[isodate].delta==undefined){
                     nconfirmed=nrecovered=ndeceased=0;
@@ -43,6 +42,7 @@ function getData(date,statecode){
                         ndeceased=0;
                 }
                 object={
+                        allDate : isodate,
                         confirmed : nconfirmed,
                         recovered :nrecovered,
                         deceased :ndeceased
@@ -51,13 +51,15 @@ function getData(date,statecode){
                 //reseting date back to original date
                 ndate=new Date(date);
             }   
-            //console.log(data);
+
       var dataPoints1 = [],dataPoints2 = [],dataPoints3 = [];
       var options =  {
         animationEnabled: true,
         theme: "light2",
         title: {
+
           text: "Covid Data : "+$('#state option:selected').text()
+
         },
         axisX: {
 			title: "Days",
@@ -69,35 +71,37 @@ function getData(date,statecode){
           titleFontSize: 24
         },
         data: [{
+
            name: "Confirmed",
           type: "spline",
           showInLegend: true,
           dataPoints: dataPoints1
         },{
           type: "spline", 
-           name: "Deceased",
+           name: "Recovered",
           showInLegend: true,
           dataPoints: dataPoints2
         },{
           type: "spline", 
-           name: "Recovered",
+           name: "Deceased",
           showInLegend: true,
+
           dataPoints: dataPoints3
         }]
       };
 
       for (var i = 0; i < data.length; i++) {
 		dataPoints1.push({
-			x: new Date(allDate[i]),
+			x: new Date(data[i]['allDate']),
 			y: data[i]['confirmed']
 		});
 		dataPoints2.push({
-			x: new Date(allDate[i]),
-			y: data[i]['deceased']
+			x: new Date(data[i]['allDate']),
+			y: data[i]['recovered']
 		});
 		dataPoints3.push({
-			x: new Date(allDate[i]),
-			y: data[i]['recovered']
+			x: new Date(data[i]['allDate']),
+			y: data[i]['deceased']
 		});
         
 	}
@@ -112,6 +116,7 @@ function getData(date,statecode){
         
     
           }).catch(err => console.error(err));
+
 }
 function getTable(date,statecode){
   var x, y ,z;
@@ -175,7 +180,7 @@ function getTable(date,statecode){
 					var parts = date.split('-');
 					var newdate = parts[2]+'-'+parts[1]+'-'+(parseInt(parts[0], 10)%100);					
 					
-					var v1="<th colspan='7'>Data for "+$('#state option:selected').text()+" on "+newdate+"</th></tr>";
+					var v1="<th colspan='7' id='table header'>Data for "+$('#state option:selected').text()+" on "+newdate+"</th></tr>";
 					var v2="<th>New confirmed</th><th>New recovered</th><th>New tested</th><th>Confirmed</th><th>Deceased</th><th>Recovered</th><th>Tested</th></tr>";
 					var tr="<tr>";
 					var td1="<td>"+data[0].nconfirm+"</td>";
@@ -205,6 +210,7 @@ $(document).ready( ()=>{
     //call getData only if both state and date have been changed
     if($date!="" && $state!="DF")
       {
+
 		$("#mytable").empty();
         getData($date,$state);
 		getTable($date,$state);
@@ -225,5 +231,6 @@ $(document).ready( ()=>{
         
       
     });
+
 });
 });
