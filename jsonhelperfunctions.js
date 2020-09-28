@@ -180,7 +180,7 @@ function getTable(date,statecode){
 					var parts = date.split('-');
 					var newdate = parts[2]+'-'+parts[1]+'-'+(parseInt(parts[0], 10)%100);					
 					
-					var v1="<th colspan='7' id="table headng">Data for "+$('#state option:selected').text()+" on "+newdate+"</th></tr>";
+					var v1="<th colspan='7' id="table header">Data for "+$('#state option:selected').text()+" on "+newdate+"</th></tr>";
 					var v2="<th>New confirmed</th><th>New recovered</th><th>New tested</th><th>Confirmed</th><th>Deceased</th><th>Recovered</th><th>Tested</th></tr>";
 					var tr="<tr>";
 					var td1="<td>"+data[0].nconfirm+"</td>";
