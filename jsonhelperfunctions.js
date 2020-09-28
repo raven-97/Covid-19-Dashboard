@@ -78,12 +78,12 @@ function getData(date,statecode){
           dataPoints: dataPoints1
         },{
           type: "spline", 
-           name: "Deceased",
+           name: "Recovered",
           showInLegend: true,
           dataPoints: dataPoints2
         },{
           type: "spline", 
-           name: "Recovered",
+           name: "Deceased",
           showInLegend: true,
 
           dataPoints: dataPoints3
@@ -97,11 +97,11 @@ function getData(date,statecode){
 		});
 		dataPoints2.push({
 			x: new Date(data[i]['allDate']),
-			y: data[i]['deceased']
+			y: data[i]['recovered']
 		});
 		dataPoints3.push({
 			x: new Date(data[i]['allDate']),
-			y: data[i]['recovered']
+			y: data[i]['deceased']
 		});
         
 	}
