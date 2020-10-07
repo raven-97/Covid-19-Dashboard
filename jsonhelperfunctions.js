@@ -341,11 +341,10 @@ $(document).ready( ()=>{
   $("#today, #state").on('change',()=> {
     var $date = $('#today').val();
     var $state = $('#state').val();
-    var $state2 = $('#state2').val();
+    
     //call getData only if both state and date have been changed
     if($date!="" && $state!="DF")
       {
-
 		$("#mytable").empty();
         getData($date,$state);
 		getTable($date,$state);
@@ -366,6 +365,20 @@ $(document).ready( ()=>{
         
       
     });
+
+    $('.comparebtn').click(function() {
+      var selection = $("#radiobutton input[type='radio']:checked").val();
+      var $state2 = $('#state2').val();
+      if(selection == undefined){
+        //print selection error message
+      }
+      else if($state2 == undefined){
+        //print state2 error message
+      }
+      else{
+        getDataComp($date, $state, $state2, selection);
+      }
+    })
 
 });
 });
