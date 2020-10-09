@@ -327,7 +327,8 @@ function getTable(date,statecode){
 					var td8="<td>"+data[0].test+"</td></tr>";
 					
 					$("#mytable").append(tr+v2+tr+td1+td2+td3+td4+td5+td6+td7+td8); 
-
+          
+          
 					
                     //console.log( data);
             
@@ -336,7 +337,7 @@ function getTable(date,statecode){
             //console.log( data);
     }).catch(err => console.error(err));
 }
-function getTable2(date,statecode){
+function getTable2(date,statecode, statecode2){
   console.log(statecode);
   var x, y ,z;
   var ndate = new Date(date);
@@ -408,7 +409,7 @@ function getTable2(date,statecode){
           var td7="<td>"+data[0].recover+"</td>";
           var td8="<td>"+data[0].test+"</td></tr>";
           
-          $("#mytable").append(tr+td1+td2+td3+td4+td5+td6+td7+td8); 
+          $("#mytable").append(tr + td1 + td2 + td3 + td4 + td5 + td6 + td7 + td8); 
 
           
                     //console.log( data);
@@ -421,18 +422,38 @@ function getTable2(date,statecode){
 
 $(document).ready( ()=>{
   console.log("ready");
-  $("#state2").hide();
- $("#compare").click(function(){
+  $(".compareContainer").hide();
+
+  $("#compare").click(function(){
     value = $("#compare").attr("value");
     if(value=="off"){
-      $("#state2").show();
+      $(".compareContainer").show();
       $("#compare").attr("value", "on");
     }
     else{
-      $("#state2").hide();
+      $(".compareContainer").hide();
       $("#compare").attr("value", "off");
     }
   })
+
+  $('#today').on('change',()=>{
+    var $date = $('#today').val();
+    if (new Date($date)>new Date())
+      {
+        $("table, #chartContainer").hide();
+        $("#err").text("Invalid Date");
+        $("#err").show();
+      }
+      
+   else{
+     $("table, #chartContainer").show();
+     $("#err").hide();
+   }
+     
+   
+ });
+
+
  $("#today, #state").on('change',()=> {
     var $date = $('#today').val();
     var $state = $('#state').val();
@@ -440,28 +461,26 @@ $(document).ready( ()=>{
     //call getData only if both state and date have been changed
     if($date!="" && $state!="DF")
       {
-
-		$("#mytable").empty();
+		    $("#mytable").empty();
         getData($date,$state);
-		getTable($date,$state);
-@@ -367,5 +366,19 @@ $(document).ready( ()=>{
-
-    });
-
-    $('.comparebtn').click(function() {
-      var selection = $("#radiobutton input[type='radio']:checked").val();
-      var $state2 = $('#state2').val();
-      if(selection == undefined){
-        //print selection error message
+        getTable($date,$state);
       }
-      else if($state2 == undefined){
-        //print state2 error message
-      }
-      else{
-        getDataComp($date, $state, $state2, selection);
-	      getTable2($date,$state2);
-      }
-    })
 
-});
+    $('#state2, #radiobutton').on('change',function () {
+        var selection = $("#radiobutton input[type='radio']:checked").val();
+        var $state2 = $('#state2').val();
+        if (selection == undefined || $state2 == "DF") {
+          //print selection error message
+        }
+        else {
+          getDataComp($date, $state, $state2, selection);
+          $("#mytable").empty();
+          getTable($date, $state);
+          getTable2($date,$state2);
+        }
+      })
+
+  });
+
+
 });
