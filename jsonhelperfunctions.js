@@ -423,6 +423,7 @@ $(document).ready( ()=>{
   console.log("ready");
   $("#state2").hide();
  $("#compare").click(function(){
+	 var selection = $("#radiobutton input[type='radio']:checked").val();
     value = $("#compare").attr("value");
     if(value=="off"){
       $("#state2").show();
@@ -442,30 +443,24 @@ $(document).ready( ()=>{
       {
 		$("#mytable").empty();
         getData($date,$state);
-		getTable($date,$state);
+
       }
-  
-    if($state2!="DF"){
-      getDataComp($date, $state, $state2, selection);
-      getTable2($date,$state2);
-      
-    }
-	  ("#today, #state, #state2").on('change',()=> {
-    var $date = $('#today').val();
-    var $state = $('#state').val();
+  else if($state2 !="DF")
+  {
+
+
     var $state2 = $('#state2').val();
     //call getData only if both state and date have been changed
-    if($date!="" && $state!="DF")
-      {
-		$("#mytable").empty();
-		getTable($date,$state);
-      }
-  var $state2 = $('#state2').val();
-    if($state2!="DF"){
+
+
+
       getDataComp($date, $state, $state2, selection);
       getTable2($date,$state2);
-      
-    }
+  }
+	  else {
+		  getData($date,$state)
+	  }
+
     $('#today').on('change',()=>{
        var $date = $('#today').val();
        if (new Date($date)>new Date())
