@@ -338,7 +338,19 @@ function getTable(date,statecode){
 
 $(document).ready( ()=>{
   console.log("ready");
-  $("#today, #state").on('change',()=> {
+  $("#state2").hide();
+ $("#compare").click(function(){
+    value = $("#compare").attr("value");
+    if(value=="off"){
+      $("#state2").show();
+      $("#compare").attr("value", "on");
+    }
+    else{
+      $("#state2").hide();
+      $("#compare").attr("value", "off");
+    }
+  })
+  $("#today, #state, #state2").on('change',()=> {
     var $date = $('#today').val();
     var $state = $('#state').val();
     
@@ -349,6 +361,12 @@ $(document).ready( ()=>{
         getData($date,$state);
 		getTable($date,$state);
       }
+  var $state2 = $('#state2').val();
+    if($state2!="DF"){
+      getData($date,$state2);
+      getTable2($date,$state2);
+      getDataComp($date, $state, $state2, selection);
+    }
     $('#today').on('change',()=>{
        var $date = $('#today').val();
        if (new Date($date)>new Date())
@@ -366,19 +384,6 @@ $(document).ready( ()=>{
       
     });
 
-    $('.comparebtn').click(function() {
-      var selection = $("#radiobutton input[type='radio']:checked").val();
-      var $state2 = $('#state2').val();
-      if(selection == undefined){
-        //print selection error message
-      }
-      else if($state2 == undefined){
-        //print state2 error message
-      }
-      else{
-        getDataComp($date, $state, $state2, selection);
-      }
-    })
 
 });
 });
