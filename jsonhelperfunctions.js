@@ -433,7 +433,7 @@ $(document).ready( ()=>{
       $("#compare").attr("value", "off");
     }
   })
-  $("#today, #state, #state2").on('change',()=> {
+  $("#today, #state").on('change',()=> {
     var $date = $('#today').val();
     var $state = $('#state').val();
     
@@ -442,6 +442,22 @@ $(document).ready( ()=>{
       {
 		$("#mytable").empty();
         getData($date,$state);
+		getTable($date,$state);
+      }
+  
+    if($state2!="DF"){
+      getDataComp($date, $state, $state2, selection);
+      getTable2($date,$state2);
+      
+    }
+	  ("#today, #state, #state2").on('change',()=> {
+    var $date = $('#today').val();
+    var $state = $('#state').val();
+    var $state2 = $('#state2').val();
+    //call getData only if both state and date have been changed
+    if($date!="" && $state!="DF")
+      {
+		$("#mytable").empty();
 		getTable($date,$state);
       }
   var $state2 = $('#state2').val();
