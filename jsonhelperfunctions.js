@@ -423,7 +423,6 @@ $(document).ready( ()=>{
   console.log("ready");
   $("#state2").hide();
  $("#compare").click(function(){
-	 var selection = $("#radiobutton input[type='radio']:checked").val();
     value = $("#compare").attr("value");
     if(value=="off"){
       $("#state2").show();
@@ -434,50 +433,35 @@ $(document).ready( ()=>{
       $("#compare").attr("value", "off");
     }
   })
-  $("#today, #state").on('change',()=> {
+ $("#today, #state").on('change',()=> {
     var $date = $('#today').val();
     var $state = $('#state').val();
-    
+
     //call getData only if both state and date have been changed
     if($date!="" && $state!="DF")
       {
+
 		$("#mytable").empty();
         getData($date,$state);
+		getTable($date,$state);
+@@ -367,5 +366,19 @@ $(document).ready( ()=>{
 
-      }
-  else if($state2 !="DF")
-  {
-
-
-    var $state2 = $('#state2').val();
-    //call getData only if both state and date have been changed
-
-
-
-      getDataComp($date, $state, $state2, selection);
-      getTable2($date,$state2);
-  }
-	  else {
-		  getData($date,$state)
-	  }
-
-    $('#today').on('change',()=>{
-       var $date = $('#today').val();
-       if (new Date($date)>new Date())
-         {
-           $("table, #chartContainer").hide();
-           $("#err").text("Invalid Date");
-           $("#err").show();
-         }
-         
-      else{
-        $("table, #chartContainer").show();
-        $("#err").hide();
-      }
-        
-      
     });
 
+    $('.comparebtn').click(function() {
+      var selection = $("#radiobutton input[type='radio']:checked").val();
+      var $state2 = $('#state2').val();
+      if(selection == undefined){
+        //print selection error message
+      }
+      else if($state2 == undefined){
+        //print state2 error message
+      }
+      else{
+        getDataComp($date, $state, $state2, selection);
+	      getTable2($date,$state2);
+      }
+    })
 
 });
 });
