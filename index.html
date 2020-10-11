@@ -78,7 +78,7 @@
             </select>
             <button class="comparebtn"id ="compare" value = "off">Compare</button>
             <div class="compareContainer">
-              <label for="state2">Select a state to compare with</label>
+              <label for="state2" id="state2label">Select a state to compare with</label>
               <select style="width: 45%;" name="state2" id="state2">
                 <option value="DF">NONE</option>
                 <option value="AN">ANDAMAN AND NICOBAR ISLANDS</option>
@@ -120,7 +120,7 @@
     	</div>
   	</div>
     <div class='OutputContainer'>
-      <div id="radiobutton">
+      <form id="radiobutton">
         <label>Select parameter for comparison</label><br>
         <input type="radio" id="confirmed" name="options" value="confirmed">
         <label for="confirmed">Confirmed</label>
@@ -128,7 +128,7 @@
         <label for="deceased">Deceased</label>
         <input type="radio" id="recovered" name="options" value="recovered">
         <label for="recovered">Recovered</label>
-      </div>
+      </form>
         <div id="chartContainer">
           
         </div>
