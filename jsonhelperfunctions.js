@@ -1,7 +1,7 @@
 //global variables
 var allDate=[];
 var date,statecode,statecode2;
-
+var f = 0;
 function getData(date,statecode){
     //converting string to date format to make subracting date easier
     var ndate=new Date(date);
@@ -337,7 +337,7 @@ function getTable(date,statecode){
             //console.log( data);
     }).catch(err => console.error(err));
 }
-function getTable2(date,statecode, statecode2){
+function getTable2(date,statecode){
   console.log(statecode);
   var x, y ,z;
   var ndate = new Date(date);
@@ -422,21 +422,27 @@ function getTable2(date,statecode, statecode2){
 
 $(document).ready( ()=>{
   console.log("ready");
+
+
   $(".compareContainer").hide();
-
-  $("#compare").click(function(){
-    value = $("#compare").attr("value");
-    if(value=="off"){
+  $("#comparebt").click(function(){
+    value = $("#comparebt").attr("value");
+    if(value=="Hide DIV"){
       $(".compareContainer").show();
-      $("#compare").attr("value", "on");
+      $("#compare").attr("value", "Show DIV");
+      f = 1;
     }
-    else{
-      $(".compareContainer").hide();
-      $("#compare").attr("value", "off");
+    else {
+    $(".compareContainer").hide();
+     f= 0;
+    
     }
-  })
+    
 
-  $('#today').on('change',()=>{
+
+
+});
+$('#today').on('change',()=>{
     var $date = $('#today').val();
     if (new Date($date)>new Date())
       {
@@ -448,20 +454,21 @@ $(document).ready( ()=>{
    else{
      $("table, #chartContainer").show();
      $("#err").hide();
+
    }
      
    
  });
-
-
+ 
  $("#today, #state").on('change',()=> {
     var $date = $('#today').val();
     var $state = $('#state').val();
+    var $state2 = $('#state2').val();
 
     //call getData only if both state and date have been changed
     if($date!="" && $state!="DF")
       {
-		    $("#mytable").empty();
+        $("#mytable").empty();
         getData($date,$state);
         getTable($date,$state);
       }
@@ -469,18 +476,24 @@ $(document).ready( ()=>{
     $('#state2, #radiobutton').on('change',function () {
         var selection = $("#radiobutton input[type='radio']:checked").val();
         var $state2 = $('#state2').val();
+        var $date = $('#today').val();
+        var $state = $('#state').val();
         if (selection == undefined || $state2 == "DF") {
           //print selection error message
         }
         else {
           getDataComp($date, $state, $state2, selection);
           $("#mytable").empty();
-          getTable($date, $state);
           getTable2($date,$state2);
+
+
         }
-      })
+      });
 
   });
-
+ 
+ 
 
 });
+
+

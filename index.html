@@ -33,6 +33,12 @@
 
 
 	<div class="container">
+
+
+        <button class="cbutton" value="Hide DIV" id = "comparebt">Compare</button>
+        <br>
+        <br>
+
  
             <label for="date">Select Date </label><br>     	
             <input style="width: 45%;" id="today" type="date">
@@ -76,7 +82,7 @@
               <option value="TN">TAMIL NADU</option>
               <option value="AP">ANDHRA PRADESH</option>
             </select>
-            <button class="comparebtn"id ="compare" value = "off">Compare</button>
+            
             <div class="compareContainer">
               <label for="state2" id="state2label">Select a state to compare with</label>
               <select style="width: 45%;" name="state2" id="state2">
@@ -116,10 +122,6 @@
                 <option value="TN">TAMIL NADU</option>
                 <option value="AP">ANDHRA PRADESH</option>
               </select>
-            </div>
-    	</div>
-  	</div>
-    <div class='OutputContainer'>
       <form id="radiobutton">
         <label>Select parameter for comparison</label><br>
         <input type="radio" id="confirmed" name="options" value="confirmed">
@@ -129,6 +131,13 @@
         <input type="radio" id="recovered" name="options" value="recovered">
         <label for="recovered">Recovered</label>
       </form>
+            </div>
+
+
+    	</div>
+  	</div>
+    <div class='OutputContainer'>
+
         <div id="chartContainer">
           
         </div>
