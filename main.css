@@ -42,7 +42,7 @@ div.container {
 	width: 33%;
 	}
 
-input, select {
+#today,#state ,#state2 {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -87,7 +87,7 @@ table, th, td {
 	width: 40%;
 	margin-right: 50px;
 	float: right;
-	margin-top: -150px;
+	margin-top: -200px;
 	cursor: pointer;
 	}
      	
