@@ -425,15 +425,18 @@ $(document).ready( ()=>{
 
 
   $(".compareContainer").hide();
+  $("#radiobutton").hide();
   $("#comparebt").click(function(){
     value = $("#comparebt").attr("value");
     if(value=="Hide DIV"){
       $(".compareContainer").show();
+      $("#radiobutton").show();
       $("#comparebt").attr("value", "Show DIV");
       f = 1;
     }
     else {
     $(".compareContainer").hide();
+    $("#radiobutton").hide();
      f= 0;
      $("#comparebt").attr("value", "Hide DIV");
     }
