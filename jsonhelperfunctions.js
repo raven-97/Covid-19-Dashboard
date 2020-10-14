@@ -315,9 +315,9 @@ function getTable(date,statecode){
 					var newdate = parts[2]+'-'+parts[1]+'-'+(parseInt(parts[0], 10)%100);					
 					
 					var v1="<th colspan='7' class='tableheader'>Data for "+$('#state option:selected').text()+" on "+newdate+"</th></tr>";
-					var v2="<th>New confirmed</th><th>New recovered</th><th>New tested</th><th>Confirmed</th><th>Deceased</th><th>Recovered</th><th>Tested</th></tr>";
+					var v2="<th>State</th><th>New confirmed</th><th>New recovered</th><th>New tested</th><th>Confirmed</th><th>Deceased</th><th>Recovered</th><th>Tested</th></tr>";
 					var tr="<tr>";
-			                var td1="<td>"+$('#state option:selected').text()+"</td>"
+			    var td1="<td>"+$('#state option:selected').text()+"</td>"
 					var td2="<td>"+data[0].nconfirm+"</td>";
 					var td3="<td>"+data[0].nrecover+"</td>";
 					var td4="<td>"+data[0].ntest+"</td>";
@@ -429,13 +429,13 @@ $(document).ready( ()=>{
     value = $("#comparebt").attr("value");
     if(value=="Hide DIV"){
       $(".compareContainer").show();
-      $("#compare").attr("value", "Show DIV");
+      $("#comparebt").attr("value", "Show DIV");
       f = 1;
     }
     else {
     $(".compareContainer").hide();
      f= 0;
-    
+     $("#comparebt").attr("value", "Hide DIV");
     }
     
 
@@ -460,20 +460,20 @@ $('#today').on('change',()=>{
    
  });
  
- $("#today, #state").on('change',()=> {
+ $("#today, #state,#state2, #radiobutton").on('change',async ()=> {
     var $date = $('#today').val();
     var $state = $('#state').val();
-    var $state2 = $('#state2').val();
-
+    
     //call getData only if both state and date have been changed
+    if(f==0){
     if($date!="" && $state!="DF")
       {
         $("#mytable").empty();
         getData($date,$state);
         getTable($date,$state);
       }
-
-    $('#state2, #radiobutton').on('change',function () {
+    }
+    else{
         var selection = $("#radiobutton input[type='radio']:checked").val();
         var $state2 = $('#state2').val();
         var $date = $('#today').val();
@@ -484,11 +484,12 @@ $('#today').on('change',()=>{
         else {
           getDataComp($date, $state, $state2, selection);
           $("#mytable").empty();
+          await getTable($date,$state);
           getTable2($date,$state2);
 
 
         }
-      });
+    }
 
   });
  
